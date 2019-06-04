@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name psu-sch)(type Legacy)(uri ${KIPRJMOD}/psu-sch.lib)(options "")(descr ""))
+)

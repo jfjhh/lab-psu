@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name psu-foot)(type KiCad)(uri ${KIPRJMOD}/psu-foot.pretty)(options "")(descr ""))
+)

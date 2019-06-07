@@ -91,7 +91,6 @@ Text GLabel 5450 3550 0    50   Input ~ 0
 Vout
 Wire Wire Line
 	5450 3550 5500 3550
-Connection ~ 5500 3550
 Text GLabel 6600 2700 2    50   Input ~ 0
 Vout
 Wire Wire Line
@@ -264,8 +263,6 @@ Text Notes 3400 3450 2    50   Italic 0
 Text Notes 3400 3550 2    50   Italic 0
 100 mA
 Wire Wire Line
-	3450 3500 3450 3650
-Wire Wire Line
 	5000 3650 5000 3200
 Wire Wire Line
 	5000 3200 5500 3200
@@ -393,106 +390,57 @@ Wire Wire Line
 	7600 2900 7750 2900
 Connection ~ 7750 2900
 Wire Wire Line
-	7750 2900 7750 2950
-$Comp
-L power:GND #PWR013
-U 1 1 5CFD5078
-P 7750 2950
-F 0 "#PWR013" H 7750 2700 50  0001 C CNN
-F 1 "GND" H 7755 2777 50  0000 C CNN
-F 2 "" H 7750 2950 50  0001 C CNN
-F 3 "" H 7750 2950 50  0001 C CNN
-	1    7750 2950
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
 	7250 2800 7250 2700
 Wire Wire Line
-	7250 2400 7350 2400
+	7250 2200 7350 2200
 Connection ~ 7250 2800
 Wire Wire Line
 	7250 2800 7300 2800
 Wire Wire Line
-	7250 2900 7250 3150
+	7250 2900 7250 3050
 Wire Wire Line
-	7250 3150 7350 3150
+	7250 3300 7350 3300
 Connection ~ 7250 2900
 Wire Wire Line
 	7250 2900 7300 2900
-Text GLabel 7350 2400 2    50   Input ~ 0
+Text GLabel 7350 2200 2    50   Input ~ 0
 Iout
-Text GLabel 7350 3150 2    50   Input ~ 0
+Text GLabel 7350 3300 2    50   Input ~ 0
 TEMP
-Text Notes 7300 3300 0    50   ~ 0
+Text Notes 7300 3450 0    50   ~ 0
 1 mV/°C
 Connection ~ 6500 3550
 Wire Wire Line
-	7900 3650 7900 3700
-$Comp
-L power:GND #PWR016
-U 1 1 5CFF732D
-P 7900 3700
-F 0 "#PWR016" H 7900 3450 50  0001 C CNN
-F 1 "GND" H 7905 3527 50  0000 C CNN
-F 2 "" H 7900 3700 50  0001 C CNN
-F 3 "" H 7900 3700 50  0001 C CNN
-	1    7900 3700
-	1    0    0    -1  
-$EndComp
+	7600 3650 7600 3700
 $Comp
 L Connector_Generic:Conn_01x02 J3
 U 1 1 5D003BCD
-P 8150 3550
-F 0 "J3" H 8230 3542 50  0000 L CNN
-F 1 "Binding posts" H 8230 3451 50  0000 L CNN
-F 2 "psu-foot:Binding Posts" H 8150 3550 50  0001 C CNN
-F 3 "~" H 8150 3550 50  0001 C CNN
-	1    8150 3550
+P 7850 3550
+F 0 "J3" H 7930 3542 50  0000 L CNN
+F 1 "Binding posts" H 7930 3451 50  0000 L CNN
+F 2 "psu-foot:Binding Posts" H 7850 3550 50  0001 C CNN
+F 3 "~" H 7850 3550 50  0001 C CNN
+	1    7850 3550
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	7900 3650 7950 3650
-Text GLabel 3850 4350 0    50   Input ~ 0
+	7600 3650 7650 3650
+Text GLabel 3850 4550 0    50   Input ~ 0
 Vin
 Wire Wire Line
-	3850 4350 3900 4350
-Text GLabel 3850 4950 0    50   Input ~ 0
+	3850 4550 3900 4550
+Text GLabel 3850 5150 0    50   Input ~ 0
 TEMP
-Text GLabel 3850 4750 0    50   Input ~ 0
+Text GLabel 3850 4950 0    50   Input ~ 0
 Iout
-Text GLabel 3850 4550 0    50   Input ~ 0
+Text GLabel 3850 4750 0    50   Input ~ 0
 Vout
 Wire Wire Line
-	3850 4550 3900 4550
+	3850 4750 3900 4750
 Wire Wire Line
-	3900 4750 3850 4750
+	3900 4950 3850 4950
 Wire Wire Line
-	3850 4950 3900 4950
-$Comp
-L Connector:TestPoint_2Pole TP6
-U 1 1 5D055120
-P 7550 3950
-F 0 "TP6" V 7504 4008 50  0000 L CNN
-F 1 "Vout test" V 7595 4008 50  0000 L CNN
-F 2 "TestPoint:TestPoint_2Pads_Pitch5.08mm_Drill1.3mm" H 7550 3950 50  0001 C CNN
-F 3 "~" H 7550 3950 50  0001 C CNN
-	1    7550 3950
-	0    1    1    0   
-$EndComp
-Wire Wire Line
-	7550 3750 7550 3550
-Connection ~ 7550 3550
-$Comp
-L power:GND #PWR012
-U 1 1 5D05B4C8
-P 7550 4150
-F 0 "#PWR012" H 7550 3900 50  0001 C CNN
-F 1 "GND" H 7555 3977 50  0000 C CNN
-F 2 "" H 7550 4150 50  0001 C CNN
-F 3 "" H 7550 4150 50  0001 C CNN
-	1    7550 4150
-	1    0    0    -1  
-$EndComp
+	3850 5150 3900 5150
 Connection ~ 5100 3850
 $Comp
 L power:GND #PWR02
@@ -507,8 +455,6 @@ F 3 "" H 4650 3900 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	4800 3900 4650 3900
-Wire Wire Line
-	7550 3550 7950 3550
 Wire Wire Line
 	6200 4400 6200 4450
 $Comp
@@ -526,19 +472,6 @@ Wire Wire Line
 	6150 4400 6200 4400
 Text GLabel 6150 4400 0    50   Input ~ 0
 Vin
-$Comp
-L Device:LED_ALT D1
-U 1 1 5CFD2F93
-P 6650 4600
-F 0 "D1" V 6689 4482 50  0000 R CNN
-F 1 "LED_RED" V 6598 4482 50  0000 R CNN
-F 2 "LED_THT:LED_D5.0mm" H 6650 4600 50  0001 C CNN
-F 3 "~" H 6650 4600 50  0001 C CNN
-	1    6650 4600
-	0    -1   -1   0   
-$EndComp
-Wire Wire Line
-	6650 4400 6650 4450
 Text GLabel 5800 6100 0    50   Input ~ 0
 TEMP
 Text GLabel 4650 5550 0    50   Input ~ 0
@@ -599,69 +532,69 @@ Connection ~ 5050 5550
 $Comp
 L Connector:TestPoint TP2
 U 1 1 5D1B06FD
-P 3900 4550
-F 0 "TP2" V 3854 4738 50  0000 L CNN
-F 1 "Vout" V 3945 4738 50  0000 L CNN
-F 2 "TestPoint:TestPoint_Bridge_Pitch2.54mm_Drill1.3mm" H 4100 4550 50  0001 C CNN
-F 3 "~" H 4100 4550 50  0001 C CNN
-	1    3900 4550
-	0    1    1    0   
-$EndComp
-$Comp
-L Connector:TestPoint TP3
-U 1 1 5D1BB2CF
 P 3900 4750
-F 0 "TP3" V 3854 4938 50  0000 L CNN
-F 1 "Iout" V 3945 4938 50  0000 L CNN
+F 0 "TP2" V 3854 4938 50  0000 L CNN
+F 1 "Vout" V 3945 4938 50  0000 L CNN
 F 2 "TestPoint:TestPoint_Bridge_Pitch2.54mm_Drill1.3mm" H 4100 4750 50  0001 C CNN
 F 3 "~" H 4100 4750 50  0001 C CNN
 	1    3900 4750
 	0    1    1    0   
 $EndComp
 $Comp
-L Connector:TestPoint TP4
-U 1 1 5D1BFE83
+L Connector:TestPoint TP3
+U 1 1 5D1BB2CF
 P 3900 4950
-F 0 "TP4" V 3854 5138 50  0000 L CNN
-F 1 "Temp" V 3945 5138 50  0000 L CNN
+F 0 "TP3" V 3854 5138 50  0000 L CNN
+F 1 "Iout" V 3945 5138 50  0000 L CNN
 F 2 "TestPoint:TestPoint_Bridge_Pitch2.54mm_Drill1.3mm" H 4100 4950 50  0001 C CNN
 F 3 "~" H 4100 4950 50  0001 C CNN
 	1    3900 4950
 	0    1    1    0   
 $EndComp
 $Comp
+L Connector:TestPoint TP4
+U 1 1 5D1BFE83
+P 3900 5150
+F 0 "TP4" V 3854 5338 50  0000 L CNN
+F 1 "Temp" V 3945 5338 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Bridge_Pitch2.54mm_Drill1.3mm" H 4100 5150 50  0001 C CNN
+F 3 "~" H 4100 5150 50  0001 C CNN
+	1    3900 5150
+	0    1    1    0   
+$EndComp
+$Comp
 L Connector:TestPoint TP1
 U 1 1 5D1C006B
-P 3900 4350
-F 0 "TP1" V 3854 4538 50  0000 L CNN
-F 1 "Vin" V 3945 4538 50  0000 L CNN
-F 2 "TestPoint:TestPoint_Bridge_Pitch2.54mm_Drill1.3mm" H 4100 4350 50  0001 C CNN
-F 3 "~" H 4100 4350 50  0001 C CNN
-	1    3900 4350
+P 3900 4550
+F 0 "TP1" V 3854 4738 50  0000 L CNN
+F 1 "Vin" V 3945 4738 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Bridge_Pitch2.54mm_Drill1.3mm" H 4100 4550 50  0001 C CNN
+F 3 "~" H 4100 4550 50  0001 C CNN
+	1    3900 4550
 	0    1    1    0   
 $EndComp
 $Comp
 L power:GND #PWR01
 U 1 1 5D1D360C
-P 3850 5150
-F 0 "#PWR01" H 3850 4900 50  0001 C CNN
-F 1 "GND" V 3855 5022 50  0000 R CNN
-F 2 "" H 3850 5150 50  0001 C CNN
-F 3 "" H 3850 5150 50  0001 C CNN
-	1    3850 5150
+P 3850 5350
+F 0 "#PWR01" H 3850 5100 50  0001 C CNN
+F 1 "GND" V 3855 5222 50  0000 R CNN
+F 2 "" H 3850 5350 50  0001 C CNN
+F 3 "" H 3850 5350 50  0001 C CNN
+	1    3850 5350
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	3850 5150 3900 5150
+	3850 5350 3900 5350
 $Comp
 L Connector:TestPoint TP5
 U 1 1 5D1D96AA
-P 3900 5150
-F 0 "TP5" V 3854 5338 50  0000 L CNN
-F 1 "Gnd" V 3945 5338 50  0000 L CNN
-F 2 "TestPoint:TestPoint_Bridge_Pitch2.54mm_Drill1.3mm" H 4100 5150 50  0001 C CNN
-F 3 "~" H 4100 5150 50  0001 C CNN
-	1    3900 5150
+P 3900 5350
+F 0 "TP5" V 3854 5538 50  0000 L CNN
+F 1 "Gnd" V 3945 5538 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Bridge_Pitch2.54mm_Drill1.3mm" H 4100 5350 50  0001 C CNN
+F 3 "~" H 4100 5350 50  0001 C CNN
+	1    3900 5350
 	0    1    1    0   
 $EndComp
 Text Notes 6300 3750 0    50   ~ 0
@@ -772,8 +705,6 @@ Wire Wire Line
 	7000 3600 7000 3550
 Connection ~ 7000 3550
 Wire Wire Line
-	7000 3550 7550 3550
-Wire Wire Line
 	6550 3000 6700 3000
 Wire Wire Line
 	6700 3050 6700 3000
@@ -791,11 +722,8 @@ F 3 "~" H 6300 3750 50  0001 C CNN
 	1    6300 3750
 	1    0    0    -1  
 $EndComp
-Connection ~ 6300 3550
 Wire Wire Line
 	6300 3550 6500 3550
-Wire Wire Line
-	5500 3550 6300 3550
 Wire Wire Line
 	6300 3900 6300 3850
 Text Notes 5200 4400 2    50   ~ 0
@@ -812,8 +740,6 @@ Text Notes 7000 6800 0    50   ~ 0
  ** Ceramic X5R or X7R.
 Text Notes 7000 6650 0    50   ~ 0
   * 1% tolerance or better. 5-10% otherwise.
-Wire Wire Line
-	3450 3650 4250 3650
 $Comp
 L Device:C_Small C1
 U 1 1 5D18A744
@@ -837,17 +763,6 @@ Wire Wire Line
 	5000 3050 5000 3100
 Text Notes 6950 4100 2    50   ~ 0
 3.118 mA
-$Comp
-L Device:R_POT RV1
-U 1 1 5D1AFCE2
-P 5000 2900
-F 0 "RV1" H 4930 2854 50  0000 R CNN
-F 1 "100R" H 4930 2945 50  0000 R CNN
-F 2 "psu-foot:Trim_pot_Bourns_TC33X-2-101E" H 5000 2900 50  0001 C CNN
-F 3 "~" H 5000 2900 50  0001 C CNN
-	1    5000 2900
-	-1   0    0    1   
-$EndComp
 $Comp
 L Device:R R16
 U 1 1 5D1B0E72
@@ -960,27 +875,27 @@ Wire Wire Line
 $Comp
 L power:PWR_FLAG #FLG01
 U 1 1 5D1E24E0
-P 3900 4350
-F 0 "#FLG01" H 3900 4425 50  0001 C CNN
-F 1 "PWR_FLAG" H 3900 4523 50  0000 C CNN
-F 2 "" H 3900 4350 50  0001 C CNN
-F 3 "~" H 3900 4350 50  0001 C CNN
-	1    3900 4350
+P 3900 4550
+F 0 "#FLG01" H 3900 4625 50  0001 C CNN
+F 1 "PWR_FLAG" H 3900 4723 50  0000 C CNN
+F 2 "" H 3900 4550 50  0001 C CNN
+F 3 "~" H 3900 4550 50  0001 C CNN
+	1    3900 4550
 	1    0    0    -1  
 $EndComp
-Connection ~ 3900 4350
+Connection ~ 3900 4550
 $Comp
 L power:PWR_FLAG #FLG02
 U 1 1 5D1E310A
-P 3900 5150
-F 0 "#FLG02" H 3900 5225 50  0001 C CNN
-F 1 "PWR_FLAG" H 3900 5323 50  0000 C CNN
-F 2 "" H 3900 5150 50  0001 C CNN
-F 3 "~" H 3900 5150 50  0001 C CNN
-	1    3900 5150
+P 3900 5350
+F 0 "#FLG02" H 3900 5425 50  0001 C CNN
+F 1 "PWR_FLAG" H 3900 5523 50  0000 C CNN
+F 2 "" H 3900 5350 50  0001 C CNN
+F 3 "~" H 3900 5350 50  0001 C CNN
+	1    3900 5350
 	-1   0    0    1   
 $EndComp
-Connection ~ 3900 5150
+Connection ~ 3900 5350
 Wire Wire Line
 	5050 5550 5100 5550
 Text Notes 7350 2800 2    50   ~ 0
@@ -1015,7 +930,7 @@ Wire Wire Line
 	7250 2700 7300 2700
 Connection ~ 7250 2700
 Wire Wire Line
-	7250 2700 7250 2400
+	7250 2700 7250 2550
 Wire Wire Line
 	7600 2700 7750 2700
 Wire Wire Line
@@ -1039,16 +954,10 @@ F 3 "~" H 4900 3900 50  0001 C CNN
 	1    4900 3900
 	0    -1   1    0   
 $EndComp
-Text Notes 5500 4050 0    50   ~ 0
-B
-Text Notes 5200 4200 0    50   ~ 0
-Populate A xor B
 Wire Wire Line
 	5100 3900 5100 4300
 Wire Wire Line
 	6600 5650 6650 5650
-Text Notes 6250 5850 0    50   ~ 0
-6-20 mA
 $Comp
 L Comparator:LM393 U3
 U 1 1 5D03F9B7
@@ -1082,64 +991,42 @@ F 3 "http://www.ti.com/lit/ds/symlink/lm393-n.pdf" H 6300 4750 50  0001 C CNN
 	3    6300 4750
 	1    0    0    -1  
 $EndComp
-Text Notes 6300 4950 0    50   ~ 0
-6-20 mA
-Wire Wire Line
-	6700 4400 6650 4400
-Text GLabel 6700 4400 2    50   Input ~ 0
+Text GLabel 7800 4750 2    50   Input ~ 0
 Vin
-$Comp
-L Device:LED_ALT D2
-U 1 1 5CFE906B
-P 6650 5500
-F 0 "D2" V 6689 5382 50  0000 R CNN
-F 1 "LED_RED" V 6598 5382 50  0000 R CNN
-F 2 "LED_THT:LED_D5.0mm" H 6650 5500 50  0001 C CNN
-F 3 "~" H 6650 5500 50  0001 C CNN
-	1    6650 5500
-	0    -1   -1   0   
-$EndComp
 Wire Wire Line
 	6600 4750 6650 4750
-Wire Wire Line
-	6650 5300 6650 5350
-Wire Wire Line
-	6600 5300 6650 5300
-Text GLabel 6600 5300 0    50   Input ~ 0
-Vin
 $Comp
 L Device:Jumper_NO_Small JP1
 U 1 1 5D08D822
-P 3450 3750
-F 0 "JP1" V 3404 3798 50  0000 L CNN
-F 1 "Minimum limit" V 3495 3798 50  0000 L CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 3450 3750 50  0001 C CNN
-F 3 "~" H 3450 3750 50  0001 C CNN
-	1    3450 3750
+P 3450 3850
+F 0 "JP1" V 3404 3898 50  0000 L CNN
+F 1 "Min Lim" V 3500 3900 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 3450 3850 50  0001 C CNN
+F 3 "~" H 3450 3850 50  0001 C CNN
+	1    3450 3850
 	0    1    1    0   
 $EndComp
-Connection ~ 3450 3650
-Text GLabel 3400 3900 0    50   Input ~ 0
+Text GLabel 3400 4050 0    50   Input ~ 0
 Vout
 Wire Wire Line
-	3400 3900 3450 3900
+	3400 4050 3450 4050
 Wire Wire Line
-	3450 3900 3450 3850
+	3450 4050 3450 3950
 Wire Wire Line
 	4750 2950 4750 3350
 $Comp
 L Device:Jumper_NO_Small JP2
 U 1 1 5D098160
-P 4350 3650
-F 0 "JP2" H 4250 3600 50  0000 C CNN
-F 1 "No limit" H 4350 3750 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 4350 3650 50  0001 C CNN
-F 3 "~" H 4350 3650 50  0001 C CNN
-	1    4350 3650
+P 4450 3650
+F 0 "JP2" H 4350 3600 50  0000 C CNN
+F 1 "No limit" H 4450 3750 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 4450 3650 50  0001 C CNN
+F 3 "~" H 4450 3650 50  0001 C CNN
+	1    4450 3650
 	-1   0    0    1   
 $EndComp
 Wire Wire Line
-	4450 3650 4750 3650
+	4550 3650 4750 3650
 $Comp
 L Device:Jumper_NO_Small JP3
 U 1 1 5D09A299
@@ -1282,6 +1169,241 @@ Text GLabel 6950 2050 2    50   Input ~ 0
 Vin
 Text Notes 6250 4400 2    50   ~ 0
 **
-Text Notes 7350 2550 0    50   ~ 0
+Text Notes 7350 2350 0    50   ~ 0
 1 mV/mA
+$Comp
+L Regulator_Linear:LM317L_TO92 U5
+U 1 1 5CFB1CFE
+P 7450 4750
+F 0 "U5" H 7450 4992 50  0000 C CNN
+F 1 "LM317L_TO92" H 7450 4901 50  0000 C CNN
+F 2 "Package_TO_SOT_THT:TO-92_Inline" H 7450 4975 50  0001 C CIN
+F 3 "http://www.ti.com/lit/ds/snvs775k/snvs775k.pdf" H 7450 4750 50  0001 C CNN
+	1    7450 4750
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Device:R R27
+U 1 1 5CFBA539
+P 7100 4900
+F 0 "R27" H 7170 4946 50  0000 L CNN
+F 1 "100R" H 7170 4855 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 7030 4900 50  0001 C CNN
+F 3 "~" H 7100 4900 50  0001 C CNN
+	1    7100 4900
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	7150 4750 7100 4750
+Wire Wire Line
+	7450 5050 7100 5050
+Wire Wire Line
+	7800 4750 7750 4750
+$Comp
+L Device:LED_ALT D1
+U 1 1 5CFFBBAC
+P 6800 4750
+F 0 "D1" H 6793 4966 50  0000 C CNN
+F 1 "LED_RED" H 6793 4875 50  0000 C CNN
+F 2 "LED_THT:LED_D3.0mm" H 6800 4750 50  0001 C CNN
+F 3 "~" H 6800 4750 50  0001 C CNN
+	1    6800 4750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6950 4750 7100 4750
+Connection ~ 7100 4750
+Text GLabel 7800 5650 2    50   Input ~ 0
+Vin
+$Comp
+L Regulator_Linear:LM317L_TO92 U6
+U 1 1 5D00D920
+P 7450 5650
+F 0 "U6" H 7450 5892 50  0000 C CNN
+F 1 "LM317L_TO92" H 7450 5801 50  0000 C CNN
+F 2 "Package_TO_SOT_THT:TO-92_Inline" H 7450 5875 50  0001 C CIN
+F 3 "http://www.ti.com/lit/ds/snvs775k/snvs775k.pdf" H 7450 5650 50  0001 C CNN
+	1    7450 5650
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Device:R R28
+U 1 1 5D00D926
+P 7100 5800
+F 0 "R28" H 7170 5846 50  0000 L CNN
+F 1 "100R" H 7170 5755 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 7030 5800 50  0001 C CNN
+F 3 "~" H 7100 5800 50  0001 C CNN
+	1    7100 5800
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	7150 5650 7100 5650
+Wire Wire Line
+	7450 5950 7100 5950
+Wire Wire Line
+	7800 5650 7750 5650
+$Comp
+L Device:LED_ALT D2
+U 1 1 5D00D92F
+P 6800 5650
+F 0 "D2" H 6793 5866 50  0000 C CNN
+F 1 "LED_RED" H 6793 5775 50  0000 C CNN
+F 2 "LED_THT:LED_D3.0mm" H 6800 5650 50  0001 C CNN
+F 3 "~" H 6800 5650 50  0001 C CNN
+	1    6800 5650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6950 5650 7100 5650
+Connection ~ 7100 5650
+$Comp
+L Device:C_Small C6
+U 1 1 5D034956
+P 7450 2550
+F 0 "C6" V 7400 2700 50  0000 C CNN
+F 1 "0u1" V 7312 2550 50  0000 C CNN
+F 2 "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P2.50mm" H 7450 2550 50  0001 C CNN
+F 3 "~" H 7450 2550 50  0001 C CNN
+	1    7450 2550
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	7250 2550 7350 2550
+Connection ~ 7250 2550
+Wire Wire Line
+	7250 2550 7250 2200
+Wire Wire Line
+	7550 2550 7750 2550
+Wire Wire Line
+	7750 2550 7750 2700
+Connection ~ 7750 2700
+$Comp
+L Device:C_Small C7
+U 1 1 5D05389F
+P 7450 3050
+F 0 "C7" V 7400 3200 50  0000 C CNN
+F 1 "0u1" V 7550 3050 50  0000 C CNN
+F 2 "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P2.50mm" H 7450 3050 50  0001 C CNN
+F 3 "~" H 7450 3050 50  0001 C CNN
+	1    7450 3050
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	7550 3050 7750 3050
+Wire Wire Line
+	7750 2900 7750 3050
+Wire Wire Line
+	7750 3050 7750 3100
+Connection ~ 7750 3050
+Wire Wire Line
+	7350 3050 7250 3050
+Connection ~ 7250 3050
+Wire Wire Line
+	7250 3050 7250 3300
+$Comp
+L power:GND #PWR013
+U 1 1 5D06B4E1
+P 7750 3100
+F 0 "#PWR013" H 7750 2850 50  0001 C CNN
+F 1 "GND" H 7755 2927 50  0000 C CNN
+F 2 "" H 7750 3100 50  0001 C CNN
+F 3 "" H 7750 3100 50  0001 C CNN
+	1    7750 3100
+	1    0    0    -1  
+$EndComp
+Connection ~ 3450 4050
+Text Notes 4050 4000 0    50   ~ 0
+10-turn
+Wire Wire Line
+	3450 3500 3450 3650
+Wire Wire Line
+	4350 3650 4000 3650
+Connection ~ 3450 3650
+Wire Wire Line
+	3450 3650 3450 3750
+Wire Wire Line
+	4000 3700 4000 3650
+Connection ~ 4000 3650
+Wire Wire Line
+	4000 3650 3450 3650
+Text Notes 3700 4150 0    50   ~ 0
+(opt; omit switches)
+Wire Wire Line
+	4000 4000 4000 4050
+Wire Wire Line
+	3450 4050 3850 4050
+Wire Wire Line
+	3850 3850 3850 4050
+Connection ~ 3850 4050
+Wire Wire Line
+	3850 4050 4000 4050
+$Comp
+L Device:R_POT_US RV1
+U 1 1 5D0F8DEA
+P 5000 2900
+F 0 "RV1" H 4932 2854 50  0000 R CNN
+F 1 "100R" H 4932 2945 50  0000 R CNN
+F 2 "psu-foot:Trim_pot_Bourns_TC33X-2-101E" H 5000 2900 50  0001 C CNN
+F 3 "~" H 5000 2900 50  0001 C CNN
+	1    5000 2900
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:R_POT_US RV4
+U 1 1 5D0707BB
+P 4000 3850
+F 0 "RV4" H 3932 3804 50  0000 R CNN
+F 1 "1k" H 3932 3895 50  0000 R CNN
+F 2 "Potentiometer_THT:Potentiometer_Piher_PC-16_Single_Horizontal" H 4000 3850 50  0001 C CNN
+F 3 "~" H 4000 3850 50  0001 C CNN
+	1    4000 3850
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:R_POT_US RV5
+U 1 1 5D0FA5B8
+P 5800 5100
+F 0 "RV5" V 5687 5100 50  0000 C CNN
+F 1 "500k" V 5596 5100 50  0000 C CNN
+F 2 "psu-foot:Trim_pot_Bourns_TC33X-2-101E" H 5800 5100 50  0001 C CNN
+F 3 "~" H 5800 5100 50  0001 C CNN
+	1    5800 5100
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	5800 4950 5650 4950
+Wire Wire Line
+	5650 4950 5650 4850
+Connection ~ 5650 4850
+Wire Wire Line
+	5650 4950 5650 5100
+Connection ~ 5650 4950
+Wire Wire Line
+	5950 5100 5950 4850
+Connection ~ 5950 4850
+Text Notes 5300 5100 0    50   ~ 0
+Trimmer
+Text Notes 5500 5200 0    50   ~ 0
+(opt)
+$Comp
+L power:GND #PWR016
+U 1 1 5CFF732D
+P 7600 3700
+F 0 "#PWR016" H 7600 3450 50  0001 C CNN
+F 1 "GND" H 7605 3527 50  0000 C CNN
+F 2 "" H 7600 3700 50  0001 C CNN
+F 3 "" H 7600 3700 50  0001 C CNN
+	1    7600 3700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7000 3550 7650 3550
+Wire Wire Line
+	5500 3550 6000 3550
+Connection ~ 5500 3550
+Connection ~ 6300 3550
+Connection ~ 6000 3550
+Wire Wire Line
+	6000 3550 6300 3550
 $EndSCHEMATC

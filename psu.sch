@@ -843,7 +843,7 @@ U 1 1 5D1AFCE2
 P 5000 2900
 F 0 "RV1" H 4930 2854 50  0000 R CNN
 F 1 "100R" H 4930 2945 50  0000 R CNN
-F 2 "Potentiometer_THT:Potentiometer_Piher_PC-16_Single_Horizontal" H 5000 2900 50  0001 C CNN
+F 2 "psu-foot:Trim_pot_Bourns_TC33X-2-101E" H 5000 2900 50  0001 C CNN
 F 3 "~" H 5000 2900 50  0001 C CNN
 	1    5000 2900
 	-1   0    0    1   

@@ -1,4 +1,4 @@
-15941835581316550
+15943395445008956
 Battery
 BatteryHolder_Bulgin_BX0036_1xC
 Bulgin Battery Holder, BX0036, Battery Type C (https://www.bulgin.com/products/pub/media/bulgin/data/Battery_holders.pdf)
@@ -62649,6 +62649,13 @@ SW_SPST_Lever_Rubber
 0
 5
 2
+psu-foot
+Trim_pot_Bourns_TC33X-2-101E
+
+
+0
+3
+3
 Relay_SMD
 Relay_DPDT_AXICOM_IMSeries_JLeg
 http://www.te.com/commerce/DocumentDelivery/DDEController?Action=showdoc&DocId=Specification+Or+Standard%7F108-98001%7FW5%7Fpdf%7FEnglish%7FENG_SS_108-98001_W5.pdf

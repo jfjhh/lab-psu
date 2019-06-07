@@ -1,4 +1,4 @@
-15943395445008956
+15944955392542008
 Battery
 BatteryHolder_Bulgin_BX0036_1xC
 Bulgin Battery Holder, BX0036, Battery Type C (https://www.bulgin.com/products/pub/media/bulgin/data/Battery_holders.pdf)
@@ -62630,6 +62630,13 @@ Potentiometer vertical Vishay T73YP
 3
 psu-foot
 Binding Posts
+
+
+0
+2
+2
+psu-foot
+Guard_Jumper
 
 
 0

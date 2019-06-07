@@ -265,7 +265,7 @@ Text Notes 3400 3550 2    50   Italic 0
 Wire Wire Line
 	5000 3650 5000 3200
 Wire Wire Line
-	5000 3200 5500 3200
+	5000 3200 5200 3200
 Wire Wire Line
 	5000 3100 5450 3100
 Connection ~ 5450 3100
@@ -314,8 +314,6 @@ Wire Wire Line
 	5150 3850 5100 3850
 Wire Wire Line
 	5100 3850 5100 3300
-Wire Wire Line
-	5100 3300 5500 3300
 Wire Wire Line
 	5900 3850 6050 3850
 Wire Wire Line
@@ -1406,4 +1404,32 @@ Connection ~ 6300 3550
 Connection ~ 6000 3550
 Wire Wire Line
 	6000 3550 6300 3550
+$Comp
+L Device:Jumper_NO_Small JP4
+U 1 1 5D036757
+P 5300 3200
+F 0 "JP4" H 5200 3150 50  0000 C CNN
+F 1 "Guard" H 5450 3150 50  0000 C CNN
+F 2 "psu-foot:Guard_Jumper" H 5300 3200 50  0001 C CNN
+F 3 "~" H 5300 3200 50  0001 C CNN
+	1    5300 3200
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	5400 3200 5500 3200
+$Comp
+L Device:Jumper_NO_Small JP5
+U 1 1 5D036EEE
+P 5300 3300
+F 0 "JP5" H 5200 3250 50  0000 C CNN
+F 1 "Guard" H 5450 3250 50  0000 C CNN
+F 2 "psu-foot:Guard_Jumper" H 5300 3300 50  0001 C CNN
+F 3 "~" H 5300 3300 50  0001 C CNN
+	1    5300 3300
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	5100 3300 5200 3300
+Wire Wire Line
+	5400 3300 5500 3300
 $EndSCHEMATC

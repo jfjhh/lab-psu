@@ -34,29 +34,29 @@ $EndComp
 $Comp
 L Reference_Current:LM334M U4
 U 1 1 5CF5B74C
-P 7000 3800
-F 0 "U4" H 6880 3846 50  0000 R CNN
-F 1 "LM334M" H 6880 3755 50  0000 R CNN
-F 2 "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" H 7025 3650 50  0001 L CIN
-F 3 "http://www.ti.com/lit/ds/symlink/lm134.pdf" H 7000 3800 50  0001 C CIN
-	1    7000 3800
+P 7250 3800
+F 0 "U4" H 7130 3846 50  0000 R CNN
+F 1 "LM334M" H 7130 3755 50  0000 R CNN
+F 2 "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" H 7275 3650 50  0001 L CIN
+F 3 "http://www.ti.com/lit/ds/symlink/lm134.pdf" H 7250 3800 50  0001 C CIN
+	1    7250 3800
 	1    0    0    -1  
 $EndComp
 $Comp
 L Device:R R23
 U 1 1 5CF5BD01
-P 7200 3950
-F 0 "R23" H 7270 3996 50  0000 L CNN
-F 1 "22R" H 7270 3905 50  0000 L CNN
-F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 7130 3950 50  0001 C CNN
-F 3 "~" H 7200 3950 50  0001 C CNN
-	1    7200 3950
+P 7450 3950
+F 0 "R23" H 7520 3996 50  0000 L CNN
+F 1 "22R" H 7520 3905 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 7380 3950 50  0001 C CNN
+F 3 "~" H 7450 3950 50  0001 C CNN
+	1    7450 3950
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	7200 4100 7000 4100
+	7450 4100 7250 4100
 Wire Wire Line
-	7000 4100 7000 4000
+	7250 4100 7250 4000
 Wire Wire Line
 	5500 2700 5450 2700
 Wire Wire Line
@@ -331,19 +331,19 @@ F 3 "" H 6050 3900 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	7000 4150 7000 4100
-Connection ~ 7000 4100
+	7250 4150 7250 4100
+Connection ~ 7250 4100
 Wire Wire Line
-	6300 3650 6300 3550
+	6250 3650 6250 3550
 $Comp
 L power:GND #PWR08
 U 1 1 5CFC208A
-P 6300 3900
-F 0 "#PWR08" H 6300 3650 50  0001 C CNN
-F 1 "GND" H 6305 3727 50  0000 C CNN
-F 2 "" H 6300 3900 50  0001 C CNN
-F 3 "" H 6300 3900 50  0001 C CNN
-	1    6300 3900
+P 6250 3900
+F 0 "#PWR08" H 6250 3650 50  0001 C CNN
+F 1 "GND" H 6255 3727 50  0000 C CNN
+F 2 "" H 6250 3900 50  0001 C CNN
+F 3 "" H 6250 3900 50  0001 C CNN
+	1    6250 3900
 	1    0    0    -1  
 $EndComp
 Text GLabel 6900 3000 2    50   Input ~ 0
@@ -409,20 +409,20 @@ Text Notes 7300 3450 0    50   ~ 0
 1 mV/°C
 Connection ~ 6500 3550
 Wire Wire Line
-	7600 3650 7600 3700
+	7750 3650 7750 3700
 $Comp
 L Connector_Generic:Conn_01x02 J3
 U 1 1 5D003BCD
-P 7850 3550
-F 0 "J3" H 7930 3542 50  0000 L CNN
-F 1 "Binding posts" H 7930 3451 50  0000 L CNN
-F 2 "psu-foot:Binding Posts" H 7850 3550 50  0001 C CNN
-F 3 "~" H 7850 3550 50  0001 C CNN
-	1    7850 3550
+P 8000 3550
+F 0 "J3" H 8080 3542 50  0000 L CNN
+F 1 "Binding posts" H 8080 3451 50  0000 L CNN
+F 2 "psu-foot:Binding Posts" H 8000 3550 50  0001 C CNN
+F 3 "~" H 8000 3550 50  0001 C CNN
+	1    8000 3550
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	7600 3650 7650 3650
+	7750 3650 7800 3650
 Text GLabel 3850 4550 0    50   Input ~ 0
 Vin
 Wire Wire Line
@@ -595,7 +595,7 @@ F 3 "~" H 4100 5350 50  0001 C CNN
 	1    3900 5350
 	0    1    1    0   
 $EndComp
-Text Notes 6300 3750 0    50   ~ 0
+Text Notes 6250 3750 0    50   ~ 0
 **
 Wire Wire Line
 	5800 6100 5850 6100
@@ -698,10 +698,10 @@ $EndComp
 Text Notes 6700 3150 0    50   ~ 0
 **
 Wire Wire Line
-	6500 3550 7000 3550
+	6500 3550 6550 3550
 Wire Wire Line
-	7000 3600 7000 3550
-Connection ~ 7000 3550
+	7250 3600 7250 3550
+Connection ~ 7250 3550
 Wire Wire Line
 	6550 3000 6700 3000
 Wire Wire Line
@@ -712,18 +712,16 @@ Wire Wire Line
 $Comp
 L Device:C_Small C3
 U 1 1 5D13B5C1
-P 6300 3750
-F 0 "C3" H 6392 3796 50  0000 L CNN
-F 1 "10u" H 6392 3705 50  0000 L CNN
-F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 6300 3750 50  0001 C CNN
-F 3 "~" H 6300 3750 50  0001 C CNN
-	1    6300 3750
+P 6250 3750
+F 0 "C3" H 6342 3796 50  0000 L CNN
+F 1 "10u" H 6342 3705 50  0000 L CNN
+F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 6250 3750 50  0001 C CNN
+F 3 "~" H 6250 3750 50  0001 C CNN
+	1    6250 3750
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	6300 3550 6500 3550
-Wire Wire Line
-	6300 3900 6300 3850
+	6250 3900 6250 3850
 Text Notes 5200 4400 2    50   ~ 0
 *
 Text Notes 5200 4800 2    50   ~ 0
@@ -759,7 +757,7 @@ Wire Wire Line
 Connection ~ 4750 3350
 Wire Wire Line
 	5000 3050 5000 3100
-Text Notes 6950 4100 2    50   ~ 0
+Text Notes 7200 4100 2    50   ~ 0
 3.118 mA
 $Comp
 L Device:R R16
@@ -989,7 +987,7 @@ F 3 "http://www.ti.com/lit/ds/symlink/lm393-n.pdf" H 6300 4750 50  0001 C CNN
 	3    6300 4750
 	1    0    0    -1  
 $EndComp
-Text GLabel 7800 4750 2    50   Input ~ 0
+Text GLabel 8100 4750 2    50   Input ~ 0
 Vin
 Wire Wire Line
 	6600 4750 6650 4750
@@ -1028,23 +1026,23 @@ Wire Wire Line
 $Comp
 L Device:Jumper_NO_Small JP3
 U 1 1 5D09A299
-P 7000 4250
-F 0 "JP3" V 6954 4298 50  0000 L CNN
-F 1 "Preload" V 7045 4298 50  0000 L CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 7000 4250 50  0001 C CNN
-F 3 "~" H 7000 4250 50  0001 C CNN
-	1    7000 4250
+P 7250 4250
+F 0 "JP3" V 7204 4298 50  0000 L CNN
+F 1 "Preload" V 7295 4298 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 7250 4250 50  0001 C CNN
+F 3 "~" H 7250 4250 50  0001 C CNN
+	1    7250 4250
 	0    1    1    0   
 $EndComp
 $Comp
 L power:GND #PWR014
 U 1 1 5D09B76C
-P 7000 4350
-F 0 "#PWR014" H 7000 4100 50  0001 C CNN
-F 1 "GND" H 7005 4177 50  0000 C CNN
-F 2 "" H 7000 4350 50  0001 C CNN
-F 3 "" H 7000 4350 50  0001 C CNN
-	1    7000 4350
+P 7250 4350
+F 0 "#PWR014" H 7250 4100 50  0001 C CNN
+F 1 "GND" H 7255 4177 50  0000 C CNN
+F 2 "" H 7250 4350 50  0001 C CNN
+F 3 "" H 7250 4350 50  0001 C CNN
+	1    7250 4350
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -1172,31 +1170,16 @@ Text Notes 7350 2350 0    50   ~ 0
 $Comp
 L Regulator_Linear:LM317L_TO92 U5
 U 1 1 5CFB1CFE
-P 7450 4750
-F 0 "U5" H 7450 4992 50  0000 C CNN
-F 1 "LM317L_TO92" H 7450 4901 50  0000 C CNN
-F 2 "Package_TO_SOT_THT:TO-92_Inline" H 7450 4975 50  0001 C CIN
-F 3 "http://www.ti.com/lit/ds/snvs775k/snvs775k.pdf" H 7450 4750 50  0001 C CNN
-	1    7450 4750
-	-1   0    0    -1  
-$EndComp
-$Comp
-L Device:R R27
-U 1 1 5CFBA539
-P 7100 4900
-F 0 "R27" H 7170 4946 50  0000 L CNN
-F 1 "100R" H 7170 4855 50  0000 L CNN
-F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 7030 4900 50  0001 C CNN
-F 3 "~" H 7100 4900 50  0001 C CNN
-	1    7100 4900
+P 7750 4750
+F 0 "U5" H 7750 4992 50  0000 C CNN
+F 1 "LM317L_TO92" H 7750 4901 50  0000 C CNN
+F 2 "Package_TO_SOT_THT:TO-92_Inline" H 7750 4975 50  0001 C CIN
+F 3 "http://www.ti.com/lit/ds/snvs775k/snvs775k.pdf" H 7750 4750 50  0001 C CNN
+	1    7750 4750
 	-1   0    0    -1  
 $EndComp
 Wire Wire Line
-	7150 4750 7100 4750
-Wire Wire Line
-	7450 5050 7100 5050
-Wire Wire Line
-	7800 4750 7750 4750
+	8100 4750 8050 4750
 $Comp
 L Device:LED_ALT D1
 U 1 1 5CFFBBAC
@@ -1208,39 +1191,6 @@ F 3 "~" H 6800 4750 50  0001 C CNN
 	1    6800 4750
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	6950 4750 7100 4750
-Connection ~ 7100 4750
-Text GLabel 7800 5650 2    50   Input ~ 0
-Vin
-$Comp
-L Regulator_Linear:LM317L_TO92 U6
-U 1 1 5D00D920
-P 7450 5650
-F 0 "U6" H 7450 5892 50  0000 C CNN
-F 1 "LM317L_TO92" H 7450 5801 50  0000 C CNN
-F 2 "Package_TO_SOT_THT:TO-92_Inline" H 7450 5875 50  0001 C CIN
-F 3 "http://www.ti.com/lit/ds/snvs775k/snvs775k.pdf" H 7450 5650 50  0001 C CNN
-	1    7450 5650
-	-1   0    0    -1  
-$EndComp
-$Comp
-L Device:R R28
-U 1 1 5D00D926
-P 7100 5800
-F 0 "R28" H 7170 5846 50  0000 L CNN
-F 1 "100R" H 7170 5755 50  0000 L CNN
-F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 7030 5800 50  0001 C CNN
-F 3 "~" H 7100 5800 50  0001 C CNN
-	1    7100 5800
-	-1   0    0    -1  
-$EndComp
-Wire Wire Line
-	7150 5650 7100 5650
-Wire Wire Line
-	7450 5950 7100 5950
-Wire Wire Line
-	7800 5650 7750 5650
 $Comp
 L Device:LED_ALT D2
 U 1 1 5D00D92F
@@ -1252,9 +1202,6 @@ F 3 "~" H 6800 5650 50  0001 C CNN
 	1    6800 5650
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	6950 5650 7100 5650
-Connection ~ 7100 5650
 $Comp
 L Device:C_Small C6
 U 1 1 5D034956
@@ -1387,30 +1334,29 @@ Text Notes 5500 5200 0    50   ~ 0
 $Comp
 L power:GND #PWR016
 U 1 1 5CFF732D
-P 7600 3700
-F 0 "#PWR016" H 7600 3450 50  0001 C CNN
-F 1 "GND" H 7605 3527 50  0000 C CNN
-F 2 "" H 7600 3700 50  0001 C CNN
-F 3 "" H 7600 3700 50  0001 C CNN
-	1    7600 3700
+P 7750 3700
+F 0 "#PWR016" H 7750 3450 50  0001 C CNN
+F 1 "GND" H 7755 3527 50  0000 C CNN
+F 2 "" H 7750 3700 50  0001 C CNN
+F 3 "" H 7750 3700 50  0001 C CNN
+	1    7750 3700
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	7000 3550 7650 3550
+	7250 3550 7800 3550
 Wire Wire Line
 	5500 3550 6000 3550
 Connection ~ 5500 3550
-Connection ~ 6300 3550
 Connection ~ 6000 3550
 Wire Wire Line
-	6000 3550 6300 3550
+	6000 3550 6250 3550
 $Comp
 L Device:Jumper_NO_Small JP4
 U 1 1 5D036757
 P 5300 3200
 F 0 "JP4" H 5200 3150 50  0000 C CNN
 F 1 "Guard" H 5450 3150 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 5300 3200 50  0001 C CNN
+F 2 "psu-foot:Guard_Jumper" H 5300 3200 50  0001 C CNN
 F 3 "~" H 5300 3200 50  0001 C CNN
 	1    5300 3200
 	-1   0    0    1   
@@ -1423,7 +1369,7 @@ U 1 1 5D036EEE
 P 5300 3300
 F 0 "JP5" H 5200 3250 50  0000 C CNN
 F 1 "Guard" H 5450 3250 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 5300 3300 50  0001 C CNN
+F 2 "psu-foot:Guard_Jumper" H 5300 3300 50  0001 C CNN
 F 3 "~" H 5300 3300 50  0001 C CNN
 	1    5300 3300
 	-1   0    0    1   
@@ -1432,4 +1378,97 @@ Wire Wire Line
 	5100 3300 5200 3300
 Wire Wire Line
 	5400 3300 5500 3300
+Wire Wire Line
+	6550 3650 6550 3550
+$Comp
+L power:GND #PWR?
+U 1 1 5CFDC099
+P 6550 3900
+F 0 "#PWR?" H 6550 3650 50  0001 C CNN
+F 1 "GND" H 6555 3727 50  0000 C CNN
+F 2 "" H 6550 3900 50  0001 C CNN
+F 3 "" H 6550 3900 50  0001 C CNN
+	1    6550 3900
+	1    0    0    -1  
+$EndComp
+Text Notes 6550 3750 0    50   ~ 0
+**
+$Comp
+L Device:C_Small C?
+U 1 1 5CFDC0A0
+P 6550 3750
+F 0 "C?" H 6642 3796 50  0000 L CNN
+F 1 "0u1" H 6642 3705 50  0000 L CNN
+F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 6550 3750 50  0001 C CNN
+F 3 "~" H 6550 3750 50  0001 C CNN
+	1    6550 3750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6550 3900 6550 3850
+Connection ~ 6250 3550
+Wire Wire Line
+	6250 3550 6500 3550
+Connection ~ 6550 3550
+Wire Wire Line
+	6550 3550 7250 3550
+Wire Wire Line
+	6950 4750 7050 4750
+$Comp
+L Device:R R27
+U 1 1 5D018040
+P 7250 4750
+F 0 "R27" V 7150 4750 50  0000 C CNN
+F 1 "100R" V 7250 4750 50  0000 C CNN
+F 2 "" V 7180 4750 50  0001 C CNN
+F 3 "~" H 7250 4750 50  0001 C CNN
+	1    7250 4750
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	7400 4750 7450 4750
+Wire Wire Line
+	7050 5050 7050 4750
+Wire Wire Line
+	7050 5050 7750 5050
+Connection ~ 7050 4750
+Wire Wire Line
+	7050 4750 7100 4750
+Text GLabel 8100 5650 2    50   Input ~ 0
+Vin
+$Comp
+L Regulator_Linear:LM317L_TO92 U6
+U 1 1 5D035646
+P 7750 5650
+F 0 "U6" H 7750 5892 50  0000 C CNN
+F 1 "LM317L_TO92" H 7750 5801 50  0000 C CNN
+F 2 "Package_TO_SOT_THT:TO-92_Inline" H 7750 5875 50  0001 C CIN
+F 3 "http://www.ti.com/lit/ds/snvs775k/snvs775k.pdf" H 7750 5650 50  0001 C CNN
+	1    7750 5650
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	8100 5650 8050 5650
+Wire Wire Line
+	6950 5650 7050 5650
+$Comp
+L Device:R R28
+U 1 1 5D03564E
+P 7250 5650
+F 0 "R28" V 7150 5650 50  0000 C CNN
+F 1 "100R" V 7250 5650 50  0000 C CNN
+F 2 "" V 7180 5650 50  0001 C CNN
+F 3 "~" H 7250 5650 50  0001 C CNN
+	1    7250 5650
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	7400 5650 7450 5650
+Wire Wire Line
+	7050 5950 7050 5650
+Wire Wire Line
+	7050 5950 7750 5950
+Connection ~ 7050 5650
+Wire Wire Line
+	7050 5650 7100 5650
 $EndSCHEMATC

@@ -27,7 +27,7 @@ P 6000 3050
 F 0 "U2" H 6000 3625 50  0000 C CNN
 F 1 "LT3081" H 6000 3534 50  0000 C CNN
 F 2 "Package_SO:HTSSOP-16-1EP_4.4x5mm_P0.65mm_EP3.4x5mm_Mask3x3mm_ThermalVias" H 5500 3400 50  0001 C CNN
-F 3 "" H 5500 3400 50  0001 C CNN
+F 3 "https://www.analog.com/media/en/technical-documentation/data-sheets/3081fc.pdf" H 5500 3400 50  0001 C CNN
 	1    6000 3050
 	1    0    0    -1  
 $EndComp
@@ -1133,7 +1133,7 @@ P 7750 4750
 F 0 "U5" H 7750 4992 50  0000 C CNN
 F 1 "LM317L_TO92" H 7750 4901 50  0000 C CNN
 F 2 "Package_TO_SOT_THT:TO-92_Inline" H 7750 4975 50  0001 C CIN
-F 3 "http://www.ti.com/lit/ds/snvs775k/snvs775k.pdf" H 7750 4750 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/lm317l.pdf" H 7750 4750 50  0001 C CNN
 	1    7750 4750
 	-1   0    0    -1  
 $EndComp
@@ -1402,7 +1402,7 @@ P 7750 5650
 F 0 "U6" H 7750 5892 50  0000 C CNN
 F 1 "LM317L_TO92" H 7750 5801 50  0000 C CNN
 F 2 "Package_TO_SOT_THT:TO-92_Inline" H 7750 5875 50  0001 C CIN
-F 3 "http://www.ti.com/lit/ds/snvs775k/snvs775k.pdf" H 7750 5650 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/lm317l.pdf" H 7750 5650 50  0001 C CNN
 	1    7750 5650
 	-1   0    0    -1  
 $EndComp

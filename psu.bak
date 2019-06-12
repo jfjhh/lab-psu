@@ -423,22 +423,14 @@ F 3 "~" H 8000 3550 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	7750 3650 7800 3650
-Text GLabel 3850 4550 0    50   Input ~ 0
+Text GLabel 4300 4550 0    50   Input ~ 0
 Vin
 Wire Wire Line
-	3850 4550 3900 4550
-Text GLabel 3850 5150 0    50   Input ~ 0
-TEMP
-Text GLabel 3850 4950 0    50   Input ~ 0
-Iout
-Text GLabel 3850 4750 0    50   Input ~ 0
+	4300 4550 4350 4550
+Text GLabel 4300 4750 0    50   Input ~ 0
 Vout
 Wire Wire Line
-	3850 4750 3900 4750
-Wire Wire Line
-	3900 4950 3850 4950
-Wire Wire Line
-	3850 5150 3900 5150
+	4300 4750 4350 4750
 Connection ~ 5100 3850
 $Comp
 L power:GND #PWR02
@@ -530,69 +522,36 @@ Connection ~ 5050 5550
 $Comp
 L Connector:TestPoint TP2
 U 1 1 5D1B06FD
-P 3900 4750
-F 0 "TP2" V 3854 4938 50  0000 L CNN
-F 1 "Vout" V 3945 4938 50  0000 L CNN
-F 2 "TestPoint:TestPoint_Bridge_Pitch2.54mm_Drill1.3mm" H 4100 4750 50  0001 C CNN
-F 3 "~" H 4100 4750 50  0001 C CNN
-	1    3900 4750
-	0    1    1    0   
-$EndComp
-$Comp
-L Connector:TestPoint TP3
-U 1 1 5D1BB2CF
-P 3900 4950
-F 0 "TP3" V 3854 5138 50  0000 L CNN
-F 1 "Iout" V 3945 5138 50  0000 L CNN
-F 2 "Measurement_Points:Test_Point" H 4100 4950 50  0001 C CNN
-F 3 "~" H 4100 4950 50  0001 C CNN
-	1    3900 4950
-	0    1    1    0   
-$EndComp
-$Comp
-L Connector:TestPoint TP4
-U 1 1 5D1BFE83
-P 3900 5150
-F 0 "TP4" V 3854 5338 50  0000 L CNN
-F 1 "Temp" V 3945 5338 50  0000 L CNN
-F 2 "Measurement_Points:Test_Point" H 4100 5150 50  0001 C CNN
-F 3 "~" H 4100 5150 50  0001 C CNN
-	1    3900 5150
+P 4350 4750
+F 0 "TP2" V 4304 4938 50  0000 L CNN
+F 1 "Vout" V 4395 4938 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Bridge_Pitch2.54mm_Drill1.3mm" H 4550 4750 50  0001 C CNN
+F 3 "~" H 4550 4750 50  0001 C CNN
+	1    4350 4750
 	0    1    1    0   
 $EndComp
 $Comp
 L Connector:TestPoint TP1
 U 1 1 5D1C006B
-P 3900 4550
-F 0 "TP1" V 3854 4738 50  0000 L CNN
-F 1 "Vin" V 3945 4738 50  0000 L CNN
-F 2 "TestPoint:TestPoint_Bridge_Pitch2.54mm_Drill1.3mm" H 4100 4550 50  0001 C CNN
-F 3 "~" H 4100 4550 50  0001 C CNN
-	1    3900 4550
-	0    1    1    0   
-$EndComp
-$Comp
-L power:GND #PWR01
-U 1 1 5D1D360C
-P 3850 5350
-F 0 "#PWR01" H 3850 5100 50  0001 C CNN
-F 1 "GND" V 3855 5222 50  0000 R CNN
-F 2 "" H 3850 5350 50  0001 C CNN
-F 3 "" H 3850 5350 50  0001 C CNN
-	1    3850 5350
+P 4350 4550
+F 0 "TP1" V 4304 4738 50  0000 L CNN
+F 1 "Vin" V 4395 4738 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Bridge_Pitch2.54mm_Drill1.3mm" H 4550 4550 50  0001 C CNN
+F 3 "~" H 4550 4550 50  0001 C CNN
+	1    4350 4550
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	3850 5350 3900 5350
+	4300 4950 4350 4950
 $Comp
 L Connector:TestPoint TP5
 U 1 1 5D1D96AA
-P 3900 5350
-F 0 "TP5" V 3854 5538 50  0000 L CNN
-F 1 "Gnd" V 3945 5538 50  0000 L CNN
-F 2 "TestPoint:TestPoint_Bridge_Pitch2.54mm_Drill1.3mm" H 4100 5350 50  0001 C CNN
-F 3 "~" H 4100 5350 50  0001 C CNN
-	1    3900 5350
+P 4350 4950
+F 0 "TP5" V 4304 5138 50  0000 L CNN
+F 1 "Gnd" V 4395 5138 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Bridge_Pitch2.54mm_Drill1.3mm" H 4550 4950 50  0001 C CNN
+F 3 "~" H 4550 4950 50  0001 C CNN
+	1    4350 4950
 	0    1    1    0   
 $EndComp
 Text Notes 6250 3750 0    50   ~ 0
@@ -871,27 +830,27 @@ Wire Wire Line
 $Comp
 L power:PWR_FLAG #FLG01
 U 1 1 5D1E24E0
-P 3900 4550
-F 0 "#FLG01" H 3900 4625 50  0001 C CNN
-F 1 "PWR_FLAG" H 3900 4723 50  0000 C CNN
-F 2 "" H 3900 4550 50  0001 C CNN
-F 3 "~" H 3900 4550 50  0001 C CNN
-	1    3900 4550
+P 4350 4550
+F 0 "#FLG01" H 4350 4625 50  0001 C CNN
+F 1 "PWR_FLAG" H 4350 4723 50  0000 C CNN
+F 2 "" H 4350 4550 50  0001 C CNN
+F 3 "~" H 4350 4550 50  0001 C CNN
+	1    4350 4550
 	1    0    0    -1  
 $EndComp
-Connection ~ 3900 4550
+Connection ~ 4350 4550
 $Comp
 L power:PWR_FLAG #FLG02
 U 1 1 5D1E310A
-P 3900 5350
-F 0 "#FLG02" H 3900 5425 50  0001 C CNN
-F 1 "PWR_FLAG" H 3900 5523 50  0000 C CNN
-F 2 "" H 3900 5350 50  0001 C CNN
-F 3 "~" H 3900 5350 50  0001 C CNN
-	1    3900 5350
+P 4350 4950
+F 0 "#FLG02" H 4350 5025 50  0001 C CNN
+F 1 "PWR_FLAG" H 4350 5123 50  0000 C CNN
+F 2 "" H 4350 4950 50  0001 C CNN
+F 3 "~" H 4350 4950 50  0001 C CNN
+	1    4350 4950
 	-1   0    0    1   
 $EndComp
-Connection ~ 3900 5350
+Connection ~ 4350 4950
 Wire Wire Line
 	5050 5550 5100 5550
 Text Notes 7350 2800 2    50   ~ 0
@@ -1471,4 +1430,15 @@ Wire Wire Line
 Connection ~ 7050 5650
 Wire Wire Line
 	7050 5650 7100 5650
+$Comp
+L power:GND #PWR01
+U 1 1 5D1D360C
+P 4300 4950
+F 0 "#PWR01" H 4300 4700 50  0001 C CNN
+F 1 "GND" V 4305 4822 50  0000 R CNN
+F 2 "" H 4300 4950 50  0001 C CNN
+F 3 "" H 4300 4950 50  0001 C CNN
+	1    4300 4950
+	0    1    1    0   
+$EndComp
 $EndSCHEMATC

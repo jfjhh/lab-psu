@@ -1,0 +1,12 @@
+Thing	Qty	Reference(s)
+=====	===	============
+0u1	6	C1, C2, C5, C6, C7, C8
+JmpCon.	3	For JP1, JP2, JP3
+Wire	2	For JP4, JP5
+4k7	1	R15
+390R	1	R16
+1k	1	R22
+22R	1	R23
+100R	2	R27, R28
+LvrSw.	1	SW3
+

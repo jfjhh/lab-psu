@@ -17,3 +17,4 @@
 \contentsline {section}{\numberline {7}Schematic Diagram}{3}
 \contentsline {section}{\numberline {8}Printed Circuit Board Footprints}{3}
 \contentsline {section}{\numberline {9}Bill of Materials}{3}
+\contentsline {section}{\numberline {10}Colophon}{3}

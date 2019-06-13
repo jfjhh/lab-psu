@@ -1,8 +1,19 @@
-\contentsline {section}{\numberline {1}Preface}{1}
-\contentsline {section}{\numberline {2}Description}{1}
-\contentsline {section}{\numberline {3}Safety Notice}{1}
-\contentsline {section}{\numberline {4}Electrical Characteristics}{1}
-\contentsline {section}{\numberline {5}Principles of Operation}{1}
-\contentsline {section}{\numberline {6}Schematic Diagram}{1}
-\contentsline {section}{\numberline {7}Printed Circuit Board Footprints}{1}
-\contentsline {section}{\numberline {8}Bill of Materials}{1}
+\contentsline {section}{\numberline {1}Acknowledgments}{1}
+\contentsline {section}{\numberline {2}Motivation}{1}
+\contentsline {section}{\numberline {3}Safety Notice (Grounding)}{1}
+\contentsline {section}{\numberline {4}Usage Instructions}{2}
+\contentsline {subsection}{\numberline {4.1}Setting the output voltage}{2}
+\contentsline {subsection}{\numberline {4.2}Setting the current limit}{2}
+\contentsline {subsection}{\numberline {4.3}Indicator LEDs}{2}
+\contentsline {subsection}{\numberline {4.4}Monitoring the output current}{2}
+\contentsline {subsection}{\numberline {4.5}Monitoring the internal temperature}{2}
+\contentsline {subsection}{\numberline {4.6}Calibrating the current limit}{3}
+\contentsline {subsection}{\numberline {4.7}Calibrating the output error indicator}{3}
+\contentsline {section}{\numberline {5}Electrical Characteristics}{3}
+\contentsline {section}{\numberline {6}Principles of Operation}{3}
+\contentsline {subsection}{\numberline {6.1}The LT3081 linear regulator}{3}
+\contentsline {subsection}{\numberline {6.2}The internal load}{3}
+\contentsline {subsection}{\numberline {6.3}The $V_\text {out}$ error indicator circuit}{3}
+\contentsline {section}{\numberline {7}Schematic Diagram}{3}
+\contentsline {section}{\numberline {8}Printed Circuit Board Footprints}{3}
+\contentsline {section}{\numberline {9}Bill of Materials}{3}

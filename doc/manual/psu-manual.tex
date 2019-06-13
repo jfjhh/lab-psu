@@ -7,7 +7,7 @@
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{booktabs}
-\usepackage{caption}
+\usepackage[labelfont=bf]{caption}
 \usepackage{enumitem}
 \usepackage{float}
 \usepackage{geometry}
@@ -16,9 +16,15 @@
 \usepackage{microtype}
 \usepackage{nicefrac}
 \usepackage{physics}
+\usepackage{siunitx}
 \usepackage{xcolor}
 
-\title{Lab PSU Manual}
+\geometry{margin=1in}
+
+\newcommand{\refdes}[1]{\texttt{#1}}
+\newcommand{\wtemp}{\ensuremath{\blacklozenge}}
+
+\title{Lab Power Supply Manual}
 \author{Alex Striff}
 \date{\today}
 
@@ -27,15 +33,204 @@
 \tableofcontents
 \thispagestyle{empty}
 
-\section{Preface}
+\section{Acknowledgments}
 
-\section{Description}
+The creation of this lab power supply was generously funded by the Reed College
+Physics Department. I would like to thank Edgar Perez for his kind advice, as
+well as Lucas Illing for supporting this project.
 
-\section{Safety Notice}
+\section{Motivation}
 
-\section{Electrical Characteristics}
+Often when working in electronics, several voltage sources are needed. In
+addition to a main power rail, one may need a complementary negative power rail
+for analog circuitry, or a different logic power supply at \SI{3.3}{\V} instead
+of \SI{5}{\V}. Low-impedance bias voltages are also a frequent requirement,
+needed for biasing BJTs, comparator inputs, and more.
+
+For most applications, a power supply fulfilling the requirements of these
+applications need not be capable of supplying much more than \SI{1}{\A} of
+current, must have a stable voltage output (requiring a linear regulator), and
+must have a current limiting function.  Additionally, it would be nice if the
+power supply was much smaller than a conventional \SI{30}{\V}, \SI{3}{\A} output
+bench power supply with a large transformer, being conveniently powered from a
+common wall plug, batteries, or any other DC power source at hand. I have
+attempted to construct such a power supply.
+
+\section{Safety Notice (Grounding)}
+
+Please note that the negative voltage output of the supply is directly connected
+to the negative voltage input to the supply. That is, the output voltage of the
+supply floating relative to earth ground if and only if the input voltage is
+floating.
+
+If you are uncertain if the supply (or any other piece of equipment) is
+floating, it is quick and simple to check if this is the case. Set a digital
+multimeter to its resistance measurement or continuity check mode. Connect one
+probe to the negative output of the PSU (the black five-way binding post) or to
+the other terminal in question, and then connect the other probe to earth
+ground. This can be done either by insertion in to the \emph{earth} socket of a
+wall outlet, or by touching the outside of a BNC connector on any nearby
+oscilloscopes, as these are almost always earth grounded. If inserting into a
+wall outlet, be certain that you know which hole is which, and that you are
+using a multimeter approved for wall testing (most are).
+
+If the output is not floating (earth-referenced), then one must be careful to
+only connect oscilloscope ground leads to the negative output of the supply.
+Whatever the ground lead is connected to will be shorted to earth ground. If an
+incorrect connection is made, then connected circuit components, oscilloscopes,
+or computers (\textit{e.g.} through USB) may be damaged. If you are uncertain,
+connect probes as if the circuit is not floating.
+
+If the output is floating (or if you know which terminals are earthed and which
+are not), then the supply may be safely connected to other voltage sources in
+whatever configurations are convenient, such as in a dual-rail setup.
+
+\section{Usage Instructions}
+
+\subsection{Setting the output voltage}
+
+Connect a voltmeter to the output of the supply. You may use either the binding
+posts or the test points labeled on the board to achieve this. Turn the PSU on
+and adjust the voltage using the \emph{coarse} and \emph{fine} adjustment knobs
+as needed. Note that the maximum output voltage is about \SI{1.5}{\V} below the
+input voltage.
+
+\subsection{Setting the current limit}\label{sec:set_limit}
+
+To set the current limit to its minimum value, \emph{short} the minimum limit
+jumper (labeled \emph{Min Lim}, \refdes{JP1}). To set the current limit to
+higher than this value, the jumper must be \emph{open}.
+
+The current limit is set to fixed values by moving the switches on the
+board. The default values are 1, 2.5, 5, 10, 25, 50, and \SI{100}{\mA}. To set
+the limit to any of the upper four values, the switch for the lower values must
+be in its rightmost position, as indicated on the board.
+
+Alternatively, the switch section on the board may not be populated, and a
+\SI{10}{\kohm} (preferably 10-turn) potentiometer (\refdes{RV4}) may be
+soldered in to provide a continuously variable current limit.
+
+To set the current limit to its maximum value, \emph{open} the no limit jumper
+(labeled \emph{No Limit}, \refdes{JP2}). To set the current limit to lower than
+this value, the jumper must be \emph{shorted}. The maximum value is about
+\SI{2.0}{\A} in normal operation, and less when the device shuts down to prevent
+overheating.
+
+\subsection{Indicator LEDs}
+
+The power supply includes two indicator LEDs for when output voltage regulation
+is not guaranteed.
+
+The \textit{Hot} indicator LED (\refdes{D2}) lights when the main regulation IC
+(see Section~\ref{sec:lt3081}) starts to get hot (when the junction temperature
+is about \SI{100}{\celsius} or above). This light is a warning, and the output
+should continue to be regulated as normal. If the IC continues to heat up (to a
+junction temperature of \SI{125}{\celsius}), then internal protection circuitry
+will prevent damage and reduce the output voltage.
+
+The \textit{$V_\text{out}$ Error ($I$ lim)} indicator LED (\refdes{D1}) lights
+when the actual output voltage is not sufficiently close to the set output
+voltage. The most common cause for this is if the current limiting function is
+active, but internal protection circuitry or a set voltage that is too high may
+also cause an output error.
+
+\subsection{Monitoring the output current}
+
+If it is not preferred to use an ammeter to measure the output current, the
+\textit{$I_\text{out}$} test point is provided for convenient measurement or
+external control of the load current. The signal at \textit{$I_\text{out}$}
+is one volt for every ampere of output current, \emph{including the internal
+load} (see Sections~\ref{sec:chars} and~\ref{sec:int_load}). For example, if the
+supply is outputting \SI{25}{\mA} total, then \textit{$I_\text{out}$} should
+read \SI{25}{\mV}.
+
+\subsection{Monitoring the internal temperature}
+
+For more quantitative information about the temperature of the main regulation
+IC (see Section~\ref{sec:lt3081}) than is provided by the \textit{Hot} indicator
+LED, the \textit{Temp} test point is provided. The signal at \textit{Temp} is
+one millivolt for every degree Celsius of junction temperature. For example, if
+the junction temperature of the IC is about \SI{73}{\celsius} (subject to
+variation inside the IC), then \textit{Temp} should read \SI{73}{\mV}.
+
+\subsection{Calibrating the current limit}
+
+The power supply requires a minimum load in order to regulate the output voltage
+properly. An internal load usually supplies this minimum load (see
+Section~\ref{sec:int_load}), but this offsets the effective current limit on the
+output. A trimmer potentiometer is provided to compensate for this offset.
+
+Set the supply to the minimum limit as described in Section~\ref{sec:set_limit}.
+Using a screwdriver, adjust the potentiometer (labeled \emph{Load
+Offset}, \refdes{RV1}) until the output voltage is stable (no current limiting),
+and then carefully reverse direction and adjust until the current limit just
+starts to activate. This may be judged by checking the output voltage with a
+voltmeter, or by using the built-in indicator if it is calibrated as described
+in Section~\ref{sec:cal_offset}
+
+\subsection{Calibrating the output error indicator}\label{sec:cal_offset}
+
+The issues associated with creating a reliable output error indicator are
+discussed in Section~\ref{sec:how_offset}. If necessary, a trimmer potentiometer
+(\refdes{RV5}) may be populated to correct the default setting by the resistor
+\refdes{R21}.
+
+Attach a voltmeter to the PSU and set the output voltage to \SI{1}{\V}. Attach
+an external potentiometer to the output of the supply, valued to draw a typical
+current for your application. Set the PSU current limit so that increasing the
+load current will trigger the limit function. If the \SI{1}{\V} output does not
+demand enough current, it may be increased, but try to keep it as low as
+possible (see \ref{sec:how_offset} for why). Wait until the temperature of the
+circuit has stabilized. Error on the side of drawing a slightly lower current
+than needed, depending on the sensitivity required (see below). Increase the
+load gradually, and watch the error indicator LED (\refdes{D1}).
+
+If the default indication threshold set by \refdes{R21} is not sensitive enough
+for your needs, solder in the \SI{500}{\kohm} \refdes{RV5} and try the
+adjustment procedure below.
+
+If this does not work, or if the default indication did not work at all, solder
+in \refdes{RV5} and \emph{remove} \refdes{R21}. This provides a wider range of
+variation for the indication threshold, at the cost of a coarser adjustment
+rate.
+
+With the potentiometer \refdes{RV5} and the default resistor \refdes{R21}
+soldered on the board or not depending on your needs, adjust the external load
+potentiometer until the output is 2 -- \SI{10}{\mV} below the set voltage. If
+you intend to use the supply \emph{only} above about \SI{5}{\V}, the lower the
+better (you may even be able to remove \refdes{RV5} and wire a short across
+\refdes{R21} for a bit more sensitivity). To complete the calibration, adjust
+\refdes{RV5} to the barrier where \refdes{D1} just barely lights, or perhaps
+flickers.
+
+\section{Electrical Characteristics}\label{sec:chars}
+
+\begin{table*}[ht]
+  \centering
+  \caption{Electrical Characteristics. The \wtemp\ mark indicates specifications
+  which apply over the full operating temperature range. Otherwise,
+specifications are at (junction) temperatures of \SI{25}{\celsius}.}
+  \begin{tabular}{lr|lr|cccr}
+    \toprule
+    \multicolumn{2}{c}{\textbf{Parameter}} &
+    \multicolumn{2}{c}{\textbf{Conditions}} & \textbf{Min} & \textbf{Typ} &
+    \textbf{Max} & \multicolumn{1}{c}{\textbf{Units}} \\
+    \midrule
+    Input Voltage & $V_\text{in}$ & & \wtemp & 5 & & 32 & \si{\V} \\
+    Input Voltage & $V_\text{in}$ & & \wtemp & 5 & & 32 & \si{\V} \\
+    Input Voltage & $V_\text{in}$ & & \wtemp & 5 & & 32 & \si{\V} \\
+    \bottomrule
+  \end{tabular}
+  \label{tab:chars}
+\end{table*}
 
 \section{Principles of Operation}
+
+\subsection{The LT3081 linear regulator}\label{sec:lt3081}
+
+\subsection{The internal load}\label{sec:int_load}
+
+\subsection{The $V_\text{out}$ error indicator circuit}\label{sec:how_offset}
 
 \section{Schematic Diagram}
 

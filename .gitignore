@@ -1,0 +1,7 @@
+doc/manual/*.aux
+doc/manual/*.log
+doc/manual/*.lot
+doc/manual/*.out
+doc/manual/*.synctex.gz
+doc/manual/*.toc
+

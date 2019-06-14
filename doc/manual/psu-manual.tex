@@ -1,4 +1,4 @@
-\documentclass[letterpaper,twocolumn,11pt]{article}
+\documentclass[letterpaper,twocolumn,10pt]{article}
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -8,6 +8,7 @@
 \usepackage{amsthm}
 \usepackage{booktabs}
 \usepackage[labelfont=bf]{caption}
+\usepackage{circuitikz}
 \usepackage{enumitem}
 \usepackage{float}
 \usepackage{geometry}
@@ -26,6 +27,8 @@
 
 \newcommand{\refdes}[1]{\texttt{#1}}
 \newcommand{\wtemp}{\ensuremath{\blacklozenge}}
+
+\renewcommand{\includepdf}{}
 
 \title{Lab Power Supply Manual}
 \author{Alex Striff}
@@ -151,9 +154,9 @@ If it is not preferred to use an ammeter to measure the output current, the
 \textit{$I_\text{out}$} test point is provided for convenient measurement or
 external control of the load current. The signal at \textit{$I_\text{out}$}
 is one volt for every ampere of output current, \emph{including the internal
-load} (see Sections~\ref{sec:chars} and~\ref{sec:int_load}). For example, if the
-supply is outputting \SI{25}{\mA} total, then \textit{$I_\text{out}$} should
-read \SI{25}{\mV}.
+load} (see Table~\ref{tab:chars} and Section~\ref{sec:int_load}). For example,
+if the supply is outputting \SI{25}{\mA} total, then \textit{$I_\text{out}$}
+should read \SI{25}{\mV}.
 
 \subsection{Monitoring the internal temperature}
 
@@ -163,6 +166,15 @@ LED, the \textit{Temp} test point is provided. The signal at \textit{Temp} is
 one millivolt for every degree Celsius of junction temperature. For example, if
 the junction temperature of the IC is about \SI{73}{\celsius} (subject to
 variation inside the IC), then \textit{Temp} should read \SI{73}{\mV}.
+
+\subsection{Disabling the internal load}
+
+The internal load may be disabled by \emph{opening} the \textit{Internal Load}
+jumper.  Note that this will increase the current limit by at most \SI{4}{\mA}
+above the current limit displayed on the switches or that previously set by
+\refdes{RV4}, if installed. For most purposes, the \textit{Internal Load} jumper
+should be in its normal, \emph{shorted} position (see
+Section~\ref{sec:int_load}).
 
 \subsection{Calibrating the current limit}
 
@@ -267,6 +279,8 @@ flickers.
 
       $V_\text{in} = V_\text{out(nom)} + \SI{3}{\V}$ &
       & $f = \SI{1}{\MHz}$ & & & 20 & & \si{\dB} \\
+
+      Internal Load & $I_\text{int}$ & & \wtemp & 2 & 3 & 4 & \si{\mA} \\
       \bottomrule
   \end{tabular}}
   \label{tab:chars}
@@ -277,9 +291,126 @@ flickers.
 
 \subsection{The LT3081 linear regulator}\label{sec:lt3081}
 
+All of the regulation that the power supply provides is done by the LT3081, a
+rugged linear regulator IC. The regulation circuitry is depicted in
+Figure~\ref{fig:reg_circ}. An internal current source of \SI{50}{\uA} allows the
+set voltage to be configured with a single resistor $R_\text{set}$. In the power
+supply, $R_\text{set}$ is determined by the two potentiometers \refdes{RV2} and
+\refdes{RV3}.
+
+If $V_\text{out} < V_\text{set}$, then the error amplifier will increase the
+base voltage of the NPN transistor until the entire Sziklai pair has
+$V_\text{set}$ at its emitter. Similarly, the base voltage will be suitably
+reduced if $V_\text{out} > V_\text{set}$. In this way, the output voltage is
+regulated by a negative feedback loop.
+
+In practice, it may be difficult to stabilize such a circuit constructed of
+discrete components against oscillation. Using an integrated circuit solution
+such as the LT3081 allows us to have matched transistors at close to the same
+temperature, as well as to take advantage of the work done by previous engineers
+to make the output voltage stable. We simply add on some additional capacitances
+(\refdes{C1} to \refdes{C4} and \refdes{C8}) to improve noise characteristics,
+transcient performance, and stability a bit more.
+
+\begin{figure}
+  \centering
+  \begin{circuitikz} \draw
+    (0,0) node[op amp,yscale=-1] (opamp) {}
+    (-3,0.5) to [short] (opamp.+)
+    (-3,2.5) to [short,-o] (3.5,2.5)
+    node[anchor=west]{$V_{\text{in}}$} (vin)
+    (-3,2.5) to [american current source,l=\SI{50}{\uA}] (-3,0.5)
+    (-3,0.5) to [R,l=$R_\text{set}$,*-] (-3,-1.5)
+    node [ground] {}
+    (opamp.out) node[npn,anchor=B] (npn) {} (npn.collector)
+    (npn.collector) node[pnp,anchor=B] (pnp) {} (pnp.collector)
+    (pnp.collector) to [short,-*] ($(pnp.collector)+(0,-1.5))
+    (pnp.emitter) to [short,-*] ($(pnp.emitter)+(0,0.9625))
+    (opamp.-) to [short] ($(opamp.-)+(0,-1))
+    to [short,-o] (3.5,-1.5) node[anchor=west]{$V_\text{out}$}
+    (npn.emitter) to [short,-*] ($(npn.emitter)+(0,-0.725));
+  \end{circuitikz}
+  \caption{The equivalent voltage regulation circuitry inside the LT3081. The
+    equivalent current regulation circuitry is not depicted here or in the
+  LT3081 datasheet.}
+  \label{fig:reg_circ}
+\end{figure}
+
 \subsection{The internal load}\label{sec:int_load}
 
+Given the requirement that any circuitry used in the power supply must function
+consistently over the entire range of $V_\text{in}$, a simple resistor (as in
+the LT3081 datasheet) \emph{cannot} be used as a means of meeting the minimum
+load requirement of the LT3081. Instead, the LM334 current source (\refdes{U4})
+was used. With \refdes{R23} set to \SI{22}{\ohm}, we expect about \SI{3.1}{\mA}
+to be sunk from the output of the power supply, which is well above the minimum
+load requirement of the LM3081, over temperature. Since we are manually nulling
+the offset due to this current, it is allowable to use a common through-hole
+\SI{5}{\percent} tolerance resistor for \refdes{R23}, but if your application
+requires precise current limiting over a wide and changing range of
+temperatures, a \SI{1}{\percent} or better tolerance resistor should be used for
+added thermal stability.
+
+\subsection{The \textit{Hot} indicator circuit}\label{sec:how_hot}
+
+To establish a precise voltage of \SI{100}{\mV} over the entire range of
+$V_\text{in}$, corresponding to a junction temperature of \SI{100}{\celsius}, a
+\SI{2.5}{\V} LM4040 voltage reference (\refdes{U1}) and a voltage divider were
+used. The LM393 comparator (\refdes{U3B}) compares the \textit{Temp} output to
+this reference temperature, and is configured to pull the open collector output
+of the comparator low if the \textit{Temp} output goes above the reference. This
+connects the indicator LED to ground. A LM317 (\refdes{U6}) configured as a
+current source supplies a stable current to the LED over the full range of
+$V_\text{in}$. Inspection of the circuit shows that errors introduced by
+resistor tolerances and comparator input offset currents and voltages will
+result in an absolute error of at most \SI{5}{\celsius}. Furthermore, the
+comparator operates without hysteresis, so the LED may flicker when the
+actual and reference temperatures coincide. For the purpose of a coarse
+temperature indication, these undesirable characteristics are inconsequential.
+
 \subsection{The $V_\text{out}$ error indicator circuit}\label{sec:how_offset}
+
+The general configuration of the $V_\text{out}$ error indicator circuit is
+similar to that of the \textit{Hot} indicator circuit, described in
+Section~\ref{sec:how_hot}. However, the error introduced by that circuit is
+unacceptable for the purpose of displaying the current status of regulation.
+Additionally, we \emph{expect} the output voltage to coincide \emph{precisely}
+(to within a few millivolts) with the set voltage. Without any correction, the
+LED may reasonably indicate an error indefinitely, or at least flicker, when the
+output voltage is actually well-regulated.
+
+The standard solution that one may propose is to add hysteresis (in the form of
+a Schmitt trigger) to the comparator. This will not work. A Schmitt trigger must
+have an upper trigger threshold that lies \emph{above} the set voltage, but in
+the course of recovering from current limiting, the output voltage may never
+overshoot the set voltage. Thus the threshold will never be crossed, and the
+error indicator may remain on indefinitely. What is needed instead, is a small
+offset.
+
+If the comparator recieved a set voltage that was, say, \SI{10}{\mV} below
+$V_\text{set}$, then the problem is solved. Hysteresis is not even needed, since
+most all causes for a failure in regulation will not manifest as a steady offset
+of \SI{10}{\mV}. But how can we create such a small offset over the entire range
+of $V_\text{out}$, especially when the offset is comparable in size to all of
+the sources of error involved? The main barriers to control that must be
+addressed include
+\begin{itemize}
+  \item Resistor tolerances,
+  \item Loading of input sources,
+  \item Comparator input offset voltage,
+  \item Comparator input bias current,
+  \item Comparator input offset current, and
+  \item Noise.
+\end{itemize}
+
+Since the entire point of adding the offset is to allow for errors, we can deal
+with the comparator input offset voltage and current by lumping in the effect of
+their worst-case absolute errors with the error in regulation. This increases
+the minimum offset needed from that due to regulation, but only to about the
+\SI{10}{\mV} stated before. However, we cannot increase the offset too much: at
+an output voltage of \SI{1.00}{\V}, an offset of \SI{10}{\mV} already represents
+a \SI{1}{\percent} error in indication. The aim is to keep this level of
+precision for set voltages from \SI{1.00}{\V} to \SI{30.0}{\V}.
 
 \clearpage
 % \section{Schematic Diagram}

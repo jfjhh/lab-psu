@@ -8,7 +8,7 @@
 \usepackage{amsthm}
 \usepackage{booktabs}
 \usepackage[labelfont=bf]{caption}
-\usepackage{circuitikz}
+\usepackage[american]{circuitikz}
 \usepackage{enumitem}
 \usepackage{float}
 \usepackage{geometry}
@@ -28,7 +28,7 @@
 \newcommand{\refdes}[1]{\texttt{#1}}
 \newcommand{\wtemp}{\ensuremath{\blacklozenge}}
 
-\renewcommand{\includepdf}{}
+% \renewcommand{\includepdf}{}
 
 \title{Lab Power Supply Manual}
 \author{Alex Striff}
@@ -410,7 +410,63 @@ the minimum offset needed from that due to regulation, but only to about the
 \SI{10}{\mV} stated before. However, we cannot increase the offset too much: at
 an output voltage of \SI{1.00}{\V}, an offset of \SI{10}{\mV} already represents
 a \SI{1}{\percent} error in indication. The aim is to keep this level of
-precision for set voltages from \SI{1.00}{\V} to \SI{30.0}{\V}.
+precision for set voltages from \SI{1.00}{\V} to \SI{30.0}{\V}. If better
+precision than about \SI{10}{\percent} is needed below about \SI{100}{\mV}, the
+calibration procedure detailed in Section~\ref{sec:cal_offset} may be done at
+the necessary low voltage, at the cost of less realiable indication at higher
+voltages of \SI{10}{\V} to \SI{30}{\V}, depending on the configuration.
+
+So how are we to obtain the offset? Since the input bias current of the
+comparator may introduce errors comparable to the offset, we can change
+perspective. The ``error'' that it introduces can in fact be \emph{used} as the
+offset. The LM393 and many other common differential-input analog devices such
+as the LM358 have PNP darlington pair input stages. This means that any input
+bias current will flow \emph{out} of the input terminals, conveniently allowing
+us to place a resistor on the \emph{noninverting} input of the comparator to
+achieve an offset in the correct direction. Since the noninverting input is
+connected to the low-impedance $V_\text{out}$, the offset voltage introduced may
+be reliably predicted as $I_\text{in(+)} R_\text{off}$ (see
+Figure~\ref{fig:biasoff}). For the typical $I_\text{in(+)} = \SI{25}{\nA}$ and
+$R_\text{off} = \SI{150}{\kohm}$ (\refdes{R21}), we obtain an offset of
+\SI{3.8}{\mV}. This should handle possible offsets due to comparator input
+offset voltage and regulation of up to \SI{3}{\mV}, and more offset may be
+provided with a potentiometer as described in Section~\ref{sec:cal_offset}.
+
+\begin{figure}
+  \centering
+  \begin{circuitikz} \draw
+    (0,0) node[op amp,anchor=+,label={[label distance=0.5cm]-60:LM393}]
+    (opamp) {}
+    (-2.5,0) node[anchor=east]{$V_\text{out}$}
+    to [R,l=$R_\text{off}$,v<=$I_\text{in(+)} R_\text{off}$,o-] (-0.5,0)
+    to [short,i<=$I_{in(+)}$] (0,0)
+    (opamp.down) node[ground] {}
+    (opamp.up) to [short,-o] ($(opamp.up)+(0,0.5))
+    node[anchor=south]{$V_\text{in}$}
+    ;
+    \draw[densely dashed]
+    (opamp.-) to [short] ($(opamp.-)+ (-0.5,0))
+    (opamp.out) to [short] ($(opamp.out)+ (0.5,0))
+    ;
+  \end{circuitikz}
+  \caption{Introducing a small voltage offset by exploiting the input bias
+  current of the LM393 comparator.}
+  \label{fig:biasoff}
+\end{figure}
+
+But there is a problem with this circuit. Let's take a closer look at the input
+bias current. While datasheets like that for the LM393 give the input bias
+current at \SI{0}{\V} common mode voltage, we must know it for all common mode
+voltages up to $V_\text{in}$. The inputs to the LM393 essentially consist of
+differential PNP Darlington pairs, fed by a common current source at their
+emitters and drained by a current mirror at their collectors; standard stuff.
+Assuming active operation, a cursory analysis models the path from $V_\text{in}$
+to the noninverting input $V_+$ as consisting of some emitter-base or
+emitter-collector voltage drops, with some resistances in between. That is,
+$I_\text{in,(+)}$ is set by the much larger (about 300 times or so) current set
+by the current source at the emitters.
+
+TODO
 
 \clearpage
 % \section{Schematic Diagram}

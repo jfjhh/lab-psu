@@ -1,4 +1,4 @@
-\documentclass[letterpaper,twocolumn,10pt]{article}
+\documentclass[letterpaper,twocolumn,11pt]{article}
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -22,8 +22,6 @@
 \usepackage{rotating}
 \usepackage{siunitx}
 \usepackage{xcolor}
-
-\geometry{margin=1in}
 
 \newcommand{\refdes}[1]{\texttt{#1}}
 \newcommand{\wtemp}{\ensuremath{\blacklozenge}}
@@ -285,7 +283,6 @@ flickers.
   \end{tabular}}
   \label{tab:chars}
 \end{table*}
-\clearpage
 
 \section{Principles of Operation}
 
@@ -457,16 +454,52 @@ provided with a potentiometer as described in Section~\ref{sec:cal_offset}.
 But there is a problem with this circuit. Let's take a closer look at the input
 bias current. While datasheets like that for the LM393 give the input bias
 current at \SI{0}{\V} common mode voltage, we must know it for all common mode
-voltages up to $V_\text{in}$. The inputs to the LM393 essentially consist of
-differential PNP Darlington pairs, fed by a common current source at their
-emitters and drained by a current mirror at their collectors; standard stuff.
-Assuming active operation, a cursory analysis models the path from $V_\text{in}$
-to the noninverting input $V_+$ as consisting of some emitter-base or
-emitter-collector voltage drops, with some resistances in between. That is,
-$I_\text{in,(+)}$ is set by the much larger (about 300 times or so) current set
-by the current source at the emitters.
+voltages up to $V_\text{in}$. The LM358 has a simpler input stage than the
+LM393, so let's look at it instead to understand what is going on. Some quick
+measurements reveal that the offset voltage we are after \emph{decreases} with
+increasing common mode voltage (Figure~\ref{fig:lm358}). For simplicity, we may
+treat this decrease as linear, as we will only be operating in the approximately
+linear region.
 
-TODO
+Thus our solution does not work well at high common mode voltages. We fix this
+by adding a high-ratio voltage divider on the other input to the comparator.
+Note that for a voltage divider with gain close to unity ($R_1 \ll R_2$),
+\[
+  A_V
+  = \frac{R_b}{R_a + R_b}
+  = \frac{1}{1 + \flatfrac{R_a}{R_b}}
+  \approx 1 - \flatfrac{R_a}{R_b}.
+\]
+Thus with \SI{1}{\percent} resistors, we expect a relative error of about
+\SI{1.4}{\percent} in $\flatfrac{R_a}{R_b}$. For the values actually used
+(\refdes{R17} and \refdes{R18}), we then obtain an absolute error of
+\SI{21}{\uV} per volt in, giving a worst case \SI{0.6}{\mV} error for a
+\SI{30}{\V} input. Not bad.
+
+\begin{figure}
+  \centering
+  \input{offsets}
+  \caption{In the configuration of Figure~\ref{fig:biasoff}, the offset voltage
+    due to the input bias current of the LM358 decreases with increasing common
+  mode voltage.}
+  \label{fig:lm358}
+\end{figure}
+
+Now that we know why, a quick analysis of the actual offset circuit, where we
+have both offset methods acting together, gives the characteristic plot of
+Figure~\ref{fig:final_off}. Values were chosen to give an increasing offset with
+common mode, rather than the constant offset originally discussed, for
+additional margin and a more understandable relative-drop trigger, rather than
+an offset trigger. This way, the higher voltage ranges do not seem more
+sensitive to loading than the lower ranges.
+
+\begin{figure}
+  \centering
+  \input{off}
+  \caption{The expected offsets from the full offset circuit for varying values
+  of $R_f$.}
+  \label{fig:final_off}
+\end{figure}
 
 \clearpage
 % \section{Schematic Diagram}

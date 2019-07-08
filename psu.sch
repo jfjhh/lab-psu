@@ -15,7 +15,7 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 Text Notes 10600 7650 0    50   ~ 0
-A
+B
 Text Notes 8150 7650 0    50   ~ 0
 2019-06-01
 Text Notes 7350 7500 0    50   ~ 10
@@ -1441,4 +1441,10 @@ F 3 "" H 4300 4950 50  0001 C CNN
 	1    4300 4950
 	0    1    1    0   
 $EndComp
+Wire Notes Line
+	6000 6100 6000 6500
+Text Notes 5350 6750 0    50   Italic 0
+These inputs are backwards.\nOn the PCB, the traces should be cut\nand wires used to switch the inputs.
+Text Notes 8550 7500 0    50   ~ 0
+Alex Striff <striffa@reed.edu> <https://github.com/jfjhh/lab-psu>
 $EndSCHEMATC

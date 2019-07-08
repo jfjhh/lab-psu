@@ -10,3 +10,9 @@ Wire	2	For JP4, JP5
 100R	2	R27, R28
 LvrSw.	1	SW3
 
+Notes
+=====
+
+The DigiKey BOM has a through-hole package specified for the LM334.
+It should be changed to a SOIC package to fit nicely on the PCB.
+

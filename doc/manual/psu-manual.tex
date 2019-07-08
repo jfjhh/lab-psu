@@ -2,7 +2,6 @@
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage{fouriernc}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
@@ -23,12 +22,14 @@
 \usepackage{siunitx}
 \usepackage{xcolor}
 
+\geometry{margin=1in}
+
 \newcommand{\refdes}[1]{\texttt{#1}}
 \newcommand{\wtemp}{\ensuremath{\blacklozenge}}
 
 % \renewcommand{\includepdf}{}
 
-\title{Lab Power Supply Manual}
+\title{Lab Power Supply Manual \\ \large Rev. B}
 \author{Alex Striff}
 \date{\today}
 
@@ -181,13 +182,21 @@ properly. An internal load usually supplies this minimum load (see
 Section~\ref{sec:int_load}), but this offsets the effective current limit on the
 output. A trimmer potentiometer is provided to compensate for this offset.
 
-Set the supply to the minimum limit as described in Section~\ref{sec:set_limit}.
-Using a screwdriver, adjust the potentiometer (labeled \emph{Load
+First, choose which current limit range you most value precision on, say
+the \SI{10}{\mA} range. Set the supply to a relatively low voltage, like
+\SI{1}{\V}, and place the appropriate load on the output of the supply with a
+potentiometer. In this case, we would adjust a potentiometer until it drew
+\SI{10}{\mA} through itself. The \textit{$V_\text{out}$ Error ($I$ lim)}
+indicator LED should be off. Measuring \textit{$I_\text{out}$} should show
+about \SI{13}{\mV}, corresponding the \SI{10}{\mA} external load and the (fixed)
+\SI{3}{\mA} internal load. Using a screwdriver, adjust the potentiometer (labeled \emph{Load
 Offset}, \refdes{RV1}) until the output voltage is stable (no current limiting),
 and then carefully reverse direction and adjust until the current limit just
 starts to activate. This may be judged by checking the output voltage with a
 voltmeter, or by using the built-in indicator if it is calibrated as described
-in Section~\ref{sec:cal_offset}
+in Section~\ref{sec:cal_offset}. If using a voltmeter (the more precise method),
+aim for a limit situation where the output is about \SI{10}{\mV} below the set
+(stable) voltage.
 
 \subsection{Calibrating the output error indicator}\label{sec:cal_offset}
 
@@ -231,7 +240,10 @@ flickers.
   \caption[Electrical Characteristics]{Electrical characteristics. The \wtemp\
     mark indicates specifications which apply over the full operating
     temperature range. Otherwise, specifications are at (junction) temperatures
-  of \SI{25}{\celsius}.}
+    of \SI{25}{\celsius}. Note that application of negative input voltages may
+    damage the supply. Specifically, such damage tends to disable any current
+    limiting functionality, while maintaining the capability for voltage
+  regulation.}
   \resizebox{\textwidth}{!}{%
     \begin{tabular}{lr|lr|cccr}
       \toprule
@@ -242,8 +254,14 @@ flickers.
       Input Voltage & $V_\text{in}$ & & \wtemp & 5.0 & & 32.0 & \si{\V} \\
 
       Output Voltage & $V_\text{out}$
-      & $I_\text{load} < I_\text{lim}$ & \wtemp
-      & 0.0 & & $V_\text{in} - V_\text{do}$ & \si{\V} \\
+      & $I_\text{load} < I_\text{lim}$, $V_\text{in} < \SI{16}{\V}$ & \wtemp
+      & 0.7 & & $V_\text{in} - V_\text{do}$ & \si{\V} \\
+      &
+      & $I_\text{load} < I_\text{lim}$, $V_\text{in} \ge \SI{16}{\V} & \wtemp
+      & 0.7 & & 16 & \si{\V} \\
+      &
+      & No internal load & \wtemp
+      & 0.0 & & & \si{\V} \\
 
       Dropout Voltage & $V_\text{do}$
       & $I_\text{load} = \SI{100}{\mA}$ & & & 1.21 & & \si{\V} \\
